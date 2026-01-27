@@ -1,3 +1,11 @@
+<script setup>
+import WorkCard from '@/components/WorkCard.vue'
+import { projects } from '@/data/projects.js'
+
+const featuredProject = projects.find(p => p.featured)
+const standardProjects = projects.filter(p => !p.featured)
+</script>
+
 <template>
   <div>
     <section class="hero" id="top">
@@ -130,48 +138,18 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Featured Work</p>
-            <h2>Work previews will live here.</h2>
+            <p class="eyebrow">Sample Projects</p>
+            <h2>Fictional business websites showcasing what I can build for you.</h2>
           </div>
-          <p class="muted">Add project images, links, and short summaries when ready.</p>
+          <p class="muted">Demo designs for local Irish businesses.</p>
         </div>
-        <div class="work-grid work-grid-placeholder">
-          <a class="work-card placeholder" href="#" aria-disabled="true" tabindex="-1">
-            <div class="work-thumb work-thumb-placeholder">
-              <span>Project preview</span>
-            </div>
-            <h3>Project name</h3>
-            <p class="muted">Short summary + link to the live site.</p>
-            <div class="tag-row">
-              <span class="tag">Industry</span>
-              <span class="tag">Service</span>
-              <span class="tag">Location</span>
-            </div>
-          </a>
-          <a class="work-card placeholder" href="#" aria-disabled="true" tabindex="-1">
-            <div class="work-thumb work-thumb-placeholder">
-              <span>Project preview</span>
-            </div>
-            <h3>Project name</h3>
-            <p class="muted">Short summary + link to the live site.</p>
-            <div class="tag-row">
-              <span class="tag">Industry</span>
-              <span class="tag">Service</span>
-              <span class="tag">Location</span>
-            </div>
-          </a>
-          <a class="work-card placeholder" href="#" aria-disabled="true" tabindex="-1">
-            <div class="work-thumb work-thumb-placeholder">
-              <span>Project preview</span>
-            </div>
-            <h3>Project name</h3>
-            <p class="muted">Short summary + link to the live site.</p>
-            <div class="tag-row">
-              <span class="tag">Industry</span>
-              <span class="tag">Service</span>
-              <span class="tag">Location</span>
-            </div>
-          </a>
+        <div class="work-grid-featured">
+          <WorkCard :project="featuredProject" featured />
+          <WorkCard
+            v-for="project in standardProjects"
+            :key="project.id"
+            :project="project"
+          />
         </div>
       </div>
     </section>
