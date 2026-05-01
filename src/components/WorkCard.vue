@@ -15,10 +15,10 @@ defineProps({
 
 <template>
   <component
-    :is="project.externalUrl ? 'a' : RouterLink"
-    v-bind="project.externalUrl
-      ? { href: project.demoUrl, target: '_blank', rel: 'noopener noreferrer' }
-      : { to: project.demoUrl }"
+    :is="project.isExternal ? 'a' : RouterLink"
+    v-bind="project.isExternal
+      ? { href: project.url, target: '_blank', rel: 'noopener noreferrer' }
+      : { to: project.url }"
     class="work-card"
     :class="{ 'work-card-featured': featured }"
   >
@@ -43,7 +43,7 @@ defineProps({
         </span>
         <span class="tag">{{ project.location }}</span>
       </div>
-      <span class="work-link-indicator">{{ project.externalUrl ? 'Visit Site' : 'View Demo' }}</span>
+      <span class="work-link-indicator">{{ project.isExternal ? 'Visit Site' : 'View Demo' }}</span>
     </div>
   </component>
 </template>

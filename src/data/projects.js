@@ -6,8 +6,8 @@ export const projects = [
     location: 'Galway',
     summary: 'A clean, professional website built to establish a strong online presence and make it easy for customers to get in touch.',
     services: ['Design', 'Build', 'Local SEO'],
-    demoUrl: 'https://bereva.ie',
-    externalUrl: true,
+    url: 'https://bereva.ie',
+    isExternal: true,
     featured: true,
     isSample: false,
     thumbClass: 'work-thumb-bereva'
