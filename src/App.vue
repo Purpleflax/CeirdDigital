@@ -15,7 +15,6 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/#work">Work</RouterLink>
           <RouterLink to="/#process">Process</RouterLink>
           <RouterLink to="/about">About</RouterLink>
-          <RouterLink to="/#studio">Studio</RouterLink>
           <RouterLink to="/#contact">Contact</RouterLink>
         </nav>
         <div class="nav-cta">
@@ -36,7 +35,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <span class="brand-mark"></span>
             <span class="brand-name">Ceird Digital</span>
           </div>
-          <p class="muted">Local web design and development focused on simple, effective websites.</p>
+          <p class="muted">A one-person web studio in Galway, building websites for local businesses.</p>
         </div>
         <div class="footer-links">
           <div>
@@ -49,13 +48,13 @@ import { RouterLink, RouterView } from 'vue-router'
           <div>
             <p class="eyebrow">Connect</p>
             <a href="mailto:hello@ceirddigital.com">hello@ceirddigital.com</a>
-            <RouterLink to="/#contact">Project intake</RouterLink>
+            <RouterLink to="/#contact">Start a project</RouterLink>
             <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="muted">(c) 2026 Ceird Digital. All rights reserved.</p>
+        <p class="muted">&copy; 2026 Ceird Digital. All rights reserved.</p>
       </div>
     </footer>
   </div>

@@ -1,6 +1,9 @@
 <script setup>
 import WorkCard from '@/components/WorkCard.vue'
 import { projects } from '@/data/projects.js'
+import { useScrollReveal } from '@/composables/useScrollReveal.js'
+
+useScrollReveal()
 
 const featuredProject = projects.find(p => p.featured)
 const standardProjects = projects.filter(p => !p.featured)
@@ -9,85 +12,48 @@ const standardProjects = projects.filter(p => !p.featured)
 <template>
   <div>
     <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="hero-meta">
-            <p class="eyebrow">Local business websites</p>
-            <span class="location-tag">Based in Galway, Ireland</span>
-          </div>
-          <h1>Simple, modern websites built for local businesses who want it done for them.</h1>
-          <p class="lead">
-            Ceird Digital partners with local owners to design and build websites that look
-            professional, load fast, and bring in more calls, bookings, and walk-ins.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#contact">Get a free website plan</a>
-            <a class="btn outline" href="#services">See services</a>
-          </div>
-          <div class="hero-stats">
-            <div>
-              <span class="stat">2-4 weeks</span>
-              <span class="label">Typical build</span>
-            </div>
-            <div>
-              <span class="stat">Clear pricing</span>
-              <span class="label">No surprises</span>
-            </div>
-            <div>
-              <span class="stat">Local SEO</span>
-              <span class="label">Built in</span>
-            </div>
-          </div>
+      <div class="container">
+        <div class="hero-intro" data-reveal>
+          <p class="eyebrow">Web design &amp; development</p>
+          <span class="location-tag">Galway, Ireland</span>
         </div>
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span class="pill">Project Snapshot</span>
-            <span class="muted">Local business package</span>
-          </div>
-          <h3>Done-for-you website package</h3>
-          <p>
-            We keep it simple. You get a polished website, clear messaging, and a launch plan without
-            the technical hassle.
-          </p>
-          <ul class="hero-list">
-            <li>Copy polish and page structure</li>
-            <li>Mobile-friendly design</li>
-            <li>Contact forms and booking links</li>
-            <li>Google-ready SEO setup</li>
-          </ul>
-          <div class="hero-card-footer">
-            <div>
-              <span class="stat">5-8</span>
-              <span class="label">Pages</span>
-            </div>
-            <div>
-              <span class="stat">2</span>
-              <span class="label">Review rounds</span>
-            </div>
-            <div>
-              <span class="stat">30 days</span>
-              <span class="label">Launch support</span>
-            </div>
-          </div>
+        <h1 class="hero-headline" data-reveal data-delay="1">
+          I build websites for Galway businesses.
+        </h1>
+        <p class="lead hero-lead" data-reveal data-delay="2">
+          No agency overhead. No handoffs. You work directly with me from the first
+          conversation to the day your site goes live.
+        </p>
+        <div class="hero-actions" data-reveal data-delay="3">
+          <a class="btn primary" href="#contact">Start a conversation</a>
+          <a class="btn outline" href="#work">See the work</a>
+        </div>
+        <div class="hero-facts" data-reveal data-delay="4">
+          <span>2&ndash;4 week builds</span>
+          <span class="hero-fact-sep" aria-hidden="true">/</span>
+          <span>Clear pricing</span>
+          <span class="hero-fact-sep" aria-hidden="true">/</span>
+          <span>Based in Galway</span>
         </div>
       </div>
     </section>
 
     <section class="section" id="services">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div>
             <p class="eyebrow">Services</p>
-            <h2>Everything you need for a professional local business site.</h2>
+            <h2>What I offer</h2>
           </div>
-          <p class="muted">We guide you through each step and handle the technical details.</p>
+          <p class="muted">Design, build, and launch handled by one person.</p>
         </div>
         <div class="services-grid">
-          <article class="card">
+          <article class="card" data-reveal data-delay="1">
             <p class="pill soft">01</p>
             <h3>Website Design</h3>
             <p class="muted">
-              Clean layouts that build trust and make it easy for customers to reach you.
+              Clean, considered layouts built to make a strong first impression and
+              make it easy for customers to reach you.
             </p>
             <ul class="list">
               <li>Homepage and service pages</li>
@@ -95,26 +61,30 @@ const standardProjects = projects.filter(p => !p.featured)
               <li>Photo and content guidance</li>
             </ul>
           </article>
-          <article class="card">
+          <article class="card" data-reveal data-delay="2">
             <p class="pill soft">02</p>
             <h3>Build + Launch</h3>
             <p class="muted">
-              We build it, test it, and launch it so you can get back to running the business.
+              I handle the technical build, hosting, and go-live so you can stay
+              focused on running your business.
             </p>
             <ul class="list">
               <li>Fast, secure hosting setup</li>
-              <li>Contact forms and tracking</li>
+              <li>Contact forms and booking links</li>
               <li>Search-ready structure</li>
             </ul>
           </article>
-          <article class="card">
+          <article class="card" data-reveal data-delay="3">
             <p class="pill soft">03</p>
-            <h3>Local SEO Boost</h3>
-            <p class="muted">Make it easy for nearby customers to find and trust you.</p>
+            <h3>Local SEO</h3>
+            <p class="muted">
+              Getting found on Google by people in Galway who are already looking
+              for what you offer.
+            </p>
             <ul class="list">
-              <li>Google business profile support</li>
+              <li>Google Business Profile setup</li>
               <li>Location and service keywords</li>
-              <li>Reviews and testimonials setup</li>
+              <li>Technical SEO foundation</li>
             </ul>
           </article>
         </div>
@@ -123,14 +93,14 @@ const standardProjects = projects.filter(p => !p.featured)
 
     <section class="section" id="work">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div>
             <p class="eyebrow">Work</p>
             <h2>Real sites built for local businesses.</h2>
           </div>
-          <p class="muted">Projects I've taken from brief to launch.</p>
+          <p class="muted">More coming as clients go live.</p>
         </div>
-        <div v-if="standardProjects.length > 0" class="work-grid-featured">
+        <div v-if="standardProjects.length > 0" class="work-grid-featured" data-reveal>
           <WorkCard :project="featuredProject" featured />
           <WorkCard
             v-for="project in standardProjects"
@@ -138,102 +108,83 @@ const standardProjects = projects.filter(p => !p.featured)
             :project="project"
           />
         </div>
-        <div v-else class="work-solo">
+        <div v-else class="work-solo" data-reveal>
           <WorkCard :project="featuredProject" featured />
         </div>
       </div>
     </section>
 
-    <section class="section" id="process">
+    <section class="section section-alt" id="process">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div>
             <p class="eyebrow">Process</p>
-            <h2>Clear milestones, friendly guidance.</h2>
+            <h2>How it works</h2>
           </div>
-          <p class="muted">A simple process designed for busy owners.</p>
+          <p class="muted">A straightforward process built around your schedule.</p>
         </div>
         <div class="process-grid">
-          <div class="process-step">
+          <div class="process-step" data-reveal data-delay="1">
             <span class="step-number">01</span>
-            <h3>Kickoff Call</h3>
-            <p class="muted">We talk goals, customers, and what you want the site to do.</p>
+            <h3>We talk</h3>
+            <p class="muted">A short call to understand your business, your customers, and what you need the site to do.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-delay="2">
             <span class="step-number">02</span>
-            <h3>Content Plan</h3>
-            <p class="muted">We outline pages, write copy together, and gather photos.</p>
+            <h3>We plan</h3>
+            <p class="muted">We agree on pages and structure. I handle the outline; you fill in what only you know.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-delay="3">
             <span class="step-number">03</span>
-            <h3>Design + Build</h3>
-            <p class="muted">We design, build, and show you a working preview.</p>
+            <h3>We build</h3>
+            <p class="muted">I design and develop the site. You review it and request changes before anything goes live.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-delay="4">
             <span class="step-number">04</span>
-            <h3>Launch</h3>
-            <p class="muted">We go live, connect your domain, and monitor performance.</p>
+            <h3>We launch</h3>
+            <p class="muted">I handle the go-live, domain setup, and a month of follow-up support.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section split" id="studio">
+    <section class="section" id="studio">
       <div class="container split-grid">
-        <div>
+        <div data-reveal>
           <p class="eyebrow">Studio</p>
-          <h2>Solo studio, local focus.</h2>
+          <h2>A one-person studio in Galway.</h2>
           <p class="muted">
-            Ceird Digital is run by Jeffrey Reynolds with a focus on the Galway community. You work
-            directly with me from first call to launch, so nothing gets lost in the shuffle.
+            Every project is handled by me directly. The person you speak to at the
+            start is the same person who builds your site and answers your questions
+            after launch. No account managers, no outsourcing, no surprises.
           </p>
-          <div class="studio-points">
-            <div>
-              <span class="stat">1:1</span>
-              <span class="label">Direct collaboration</span>
-            </div>
-            <div>
-              <span class="stat">Plain talk</span>
-              <span class="label">No jargon</span>
-            </div>
-            <div>
-              <span class="stat">Galway</span>
-              <span class="label">Local projects</span>
-            </div>
-          </div>
+          <p class="muted">
+            I design and develop in the same breath, which means the finished product
+            holds together in a way that separate handoffs rarely manage.
+          </p>
         </div>
-        <div class="metrics-card">
-          <h3>What local owners notice</h3>
+        <div class="card studio-card" data-reveal data-delay="2">
+          <p class="eyebrow">What to expect</p>
           <ul class="list">
-            <li>Clearer services and pricing</li>
-            <li>More calls and form submissions</li>
-            <li>Customers find them faster</li>
-            <li>Site updates are easy</li>
+            <li>One person handling the project from start to finish</li>
+            <li>Quick responses and clear communication</li>
+            <li>A site that loads fast and looks right on mobile</li>
+            <li>Post-launch support when you need it</li>
           </ul>
-          <div class="metrics-footer">
-            <div>
-              <span class="stat">+25%</span>
-              <span class="label">Lead lift</span>
-            </div>
-            <div>
-              <span class="stat">2x</span>
-              <span class="label">Calls and inquiries</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="testimonials">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div>
             <p class="eyebrow">Testimonials</p>
             <h2>What clients say after launch.</h2>
           </div>
-          <p class="muted">Taking on new clients now — feedback will appear here as projects complete.</p>
+          <p class="muted">Taking on new clients now. Feedback will appear here as projects complete.</p>
         </div>
-        <div class="testimonials-placeholder">
+        <div class="testimonials-placeholder" data-reveal>
           <div class="card testimonials-coming-soon">
             <p class="muted">Currently working with my first clients. Testimonials coming soon.</p>
             <a class="btn outline" href="#contact">Interested in working together?</a>
@@ -244,26 +195,25 @@ const standardProjects = projects.filter(p => !p.featured)
 
     <section class="cta" id="contact">
       <div class="container cta-inner">
-        <div>
-          <p class="eyebrow">Start a project</p>
-          <h2>Ready for a website you can feel proud of?</h2>
+        <div data-reveal>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Ready to get started?</h2>
           <p class="muted">
-            Tell me about your business and what you need. I will reply within two business days.
+            Tell me a bit about your business and what you are looking for.
+            I will reply within a couple of days.
           </p>
           <div class="cta-actions">
-            <a class="btn primary" href="mailto:hello@ceirddigital.com">Email me</a>
-            <a class="btn outline" href="#services">See packages</a>
+            <a class="btn primary" href="mailto:hello@ceirddigital.com">Email me directly</a>
           </div>
         </div>
-        <div class="cta-card">
-          <h3>Typical project scope</h3>
+        <div class="cta-card" data-reveal data-delay="2">
+          <h3>What to include</h3>
           <ul class="list">
-            <li>Homepage + service pages</li>
-            <li>Simple booking or contact form</li>
-            <li>Photo and copy guidance</li>
-            <li>Launch and support</li>
+            <li>What your business does and who it serves</li>
+            <li>Whether you have an existing site or are starting fresh</li>
+            <li>Any rough idea of timeline or budget</li>
           </ul>
-          <p class="muted small">Need it fast? Ask about a two-week turnaround.</p>
+          <p class="muted small">No commitment needed for an initial chat.</p>
         </div>
       </div>
     </section>
