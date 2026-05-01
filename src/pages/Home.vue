@@ -73,19 +73,6 @@ const standardProjects = projects.filter(p => !p.featured)
       </div>
     </section>
 
-    <section class="logo-strip">
-      <div class="container">
-        <p class="muted">Trusted by local owners who want a site that works.</p>
-        <div class="logo-row">
-          <span>Neighborhood Bakery</span>
-          <span>Brightside Dental</span>
-          <span>Oak Street Fitness</span>
-          <span>Harbor Auto Care</span>
-          <span>Lakeside Spa</span>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="services">
       <div class="container">
         <div class="section-head">
@@ -138,18 +125,21 @@ const standardProjects = projects.filter(p => !p.featured)
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Sample Projects</p>
-            <h2>Fictional business websites showcasing what I can build for you.</h2>
+            <p class="eyebrow">Work</p>
+            <h2>Real sites built for local businesses.</h2>
           </div>
-          <p class="muted">Demo designs for local Irish businesses.</p>
+          <p class="muted">Projects I've taken from brief to launch.</p>
         </div>
-        <div class="work-grid-featured">
+        <div v-if="standardProjects.length > 0" class="work-grid-featured">
           <WorkCard :project="featuredProject" featured />
           <WorkCard
             v-for="project in standardProjects"
             :key="project.id"
             :project="project"
           />
+        </div>
+        <div v-else class="work-solo">
+          <WorkCard :project="featuredProject" featured />
         </div>
       </div>
     </section>
@@ -239,38 +229,15 @@ const standardProjects = projects.filter(p => !p.featured)
         <div class="section-head">
           <div>
             <p class="eyebrow">Testimonials</p>
-            <h2>Owners who wanted a website that finally feels right.</h2>
+            <h2>What clients say after launch.</h2>
           </div>
-          <p class="muted">Short notes from local business owners.</p>
+          <p class="muted">Taking on new clients now — feedback will appear here as projects complete.</p>
         </div>
-        <div class="testimonials-grid">
-          <figure class="card quote">
-            <blockquote>
-              "They made this so easy. We went from no website to a polished launch in weeks."
-            </blockquote>
-            <figcaption>
-              <span class="name">Amira S.</span>
-              <span class="muted">Owner, Lakeside Spa</span>
-            </figcaption>
-          </figure>
-          <figure class="card quote">
-            <blockquote>
-              "We started getting calls right away. Customers say the site looks trustworthy."
-            </blockquote>
-            <figcaption>
-              <span class="name">Jon K.</span>
-              <span class="muted">Owner, Harbor Auto Care</span>
-            </figcaption>
-          </figure>
-          <figure class="card quote">
-            <blockquote>
-              "They handled everything and kept it simple. The site now brings in new patients."
-            </blockquote>
-            <figcaption>
-              <span class="name">Elena R.</span>
-              <span class="muted">Practice Manager, Brightside Dental</span>
-            </figcaption>
-          </figure>
+        <div class="testimonials-placeholder">
+          <div class="card testimonials-coming-soon">
+            <p class="muted">Currently working with my first clients. Testimonials coming soon.</p>
+            <a class="btn outline" href="#contact">Interested in working together?</a>
+          </div>
         </div>
       </div>
     </section>

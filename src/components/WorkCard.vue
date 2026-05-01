@@ -14,8 +14,11 @@ defineProps({
 </script>
 
 <template>
-  <RouterLink
-    :to="project.demoUrl"
+  <component
+    :is="project.externalUrl ? 'a' : RouterLink"
+    v-bind="project.externalUrl
+      ? { href: project.demoUrl, target: '_blank', rel: 'noopener noreferrer' }
+      : { to: project.demoUrl }"
     class="work-card"
     :class="{ 'work-card-featured': featured }"
   >
@@ -40,7 +43,7 @@ defineProps({
         </span>
         <span class="tag">{{ project.location }}</span>
       </div>
-      <span class="work-link-indicator">View Demo</span>
+      <span class="work-link-indicator">{{ project.externalUrl ? 'Visit Site' : 'View Demo' }}</span>
     </div>
-  </RouterLink>
+  </component>
 </template>
